@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: step
+# key: step
+# --
+step($1, $2)

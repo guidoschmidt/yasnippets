@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: smoothstep
+# key: smooth
+#
+# Smooth interpolation between a and b along c
+# --
+smoothstep($1, $2, $3);
