@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: font-face 
+# key: ff
+# --
+@font-face
+  font-family: Cirka
+  font-weight: regular
+  src: url("../fonts/$1") format("$2")

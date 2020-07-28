@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: three
+# key: three
+# --
+import * as THREE from 'js/three.module.js';

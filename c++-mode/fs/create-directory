@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: fs::create directory
+# key: fs:cd
+# --
+fs::create_directories("$1"); // #include <filesystem>
