@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Emacs Lisp package
+# key: pack
+# --
+;;; $1.el --- $2 -*- lexical-binding: t; -*-
+
+;;; Commentary:
+
+;;; $3
+
+;;; Code:
+
+(provide '$1)
+;;; $1.el ends here
