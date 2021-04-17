@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: three.camera
+# key: 3.camera
+# --
+const fov = 45;
+const aspect = size.width / size.height;
+const near = 0.1;
+const far = 1000;
+const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+scene.add(camera);

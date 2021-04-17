@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import PoissonDiskSampling
+# key: ip 
+# --
+import PoissonDiskSampling from "poisson-disk-sampling";
