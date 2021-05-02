@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: glslify-import
+# key: glslify-import
+# --
+#pragma glslify: $1 = require("./$1.glsl")

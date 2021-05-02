@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: glslify-export
+# key: glslify-export
+# --
+#pragma glslify: export($1)
