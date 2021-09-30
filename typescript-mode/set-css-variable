@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: set css-variable
+# key: set-css-var
+# --
+document.documentElement.style.setProperty("--font-size", "20px");

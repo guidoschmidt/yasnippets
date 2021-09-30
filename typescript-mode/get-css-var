@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: get-css-variable
+# key: get-css-var
+# --
+const styles = getComputedStyle(document.body);
+const fontSize = styles.getPropertyValue("--font-size");
