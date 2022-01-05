@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Import ReactDOM
+# key: react-dom
+# --
+import ReactDOM from "react-dom";
