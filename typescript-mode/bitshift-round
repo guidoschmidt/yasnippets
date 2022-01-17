@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: bitshift round
+# key: rnd<<
+# --
+($1 + 0.5) << 0
