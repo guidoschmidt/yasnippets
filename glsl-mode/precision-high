@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: precision high
+# key: highp
+# --
+precision highp float;
