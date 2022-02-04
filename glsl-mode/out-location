@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: out-location
+# key: out-loc
+# --
+layout(location = ${0}) out ${vec4} ${name};

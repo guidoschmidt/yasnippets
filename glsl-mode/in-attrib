@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: in-attrib
+# key: in-attrib
+# --
+in ${vec3} ${position};

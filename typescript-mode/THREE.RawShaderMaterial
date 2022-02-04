@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: RawShaderMaterial
+# key: rawsh
+# --
+const finalShaderMaterial = new RawShaderMaterial({
+    uniforms: {
+        ${uTexture}: { value: ${texture} },
+    },
+    vertexShader: ${vertexShader},
+    fragmentShader: ${fragmentShader},
+    glslVersion: GLSL3
+});

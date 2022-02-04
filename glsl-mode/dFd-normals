@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: calculate normals 
+# key: dFd-normals
+# --
+vec3 dx = dFdx(vPosition.xyz);
+vec3 dy = dFdy(vPosition.xyz);
+vec3 n = normalize(cross(dx, dy));

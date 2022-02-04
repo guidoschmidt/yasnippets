@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: out-attrib 
+# key: out-attrib
+# --
+out ${vec4} ${vPosition};

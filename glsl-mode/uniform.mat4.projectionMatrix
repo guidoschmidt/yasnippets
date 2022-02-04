@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: uniform
+# key: uniform
+# --
+uniform ${mat4} ${projectionMatrix};
