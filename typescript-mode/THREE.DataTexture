@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: THREE.dataTexture
+# key: THREE.dataTexture
+# --
+const WIDTH = 64;
+const HEIGHT = 64;
+const SIZE = WIDTH * HEIGHT;
+const data = new Uint8Array(4 * SIZE);
+function updateDataTexture() {
+for (let x = 0; x < WIDTH; x++) {
+for (let y = 0; y < HEIGHT; y++) {
+const stride = (x * HEIGHT + y) * 4;
+const v = Math.round(Math.random() * 255);
+data[stride + 0] = v;
+data[stride + 1] = v;
+data[stride + 2] = v;
+data[stride + 3] = v;
+}
+}
+}
+updateDataTexture();
+const dataTexture = new DataTexture(data, WIDTH, HEIGHT);
+dataTexture.needsUpdate = true;

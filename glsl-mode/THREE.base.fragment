@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: THREE.base-fragment-shader 
+# key: THREE.fragment-base
+# --
+precision highp float;
+
+out vec4 fragColor;
+
+void main() {
+  fragColor = vec4(1.0, 0.0, 0.7, 1.0);
+}

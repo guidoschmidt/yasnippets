@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: THREE.resize
+# key: THREE.resize
+# --
+function resize(camera: PerspectiveCamera, renderer: WebGLRenderer) {
+  const { innerWidth: width, innerHeight: height } = window;
+  const aspect = width / height;
+  camera.aspect = aspect;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(window.devicePixelRatio);
+}

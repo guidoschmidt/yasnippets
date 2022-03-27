@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: typeguard
+# key: tguard
+# --
+function is${className}(obj: any): obj is ${className} {
+  return ${condition};
+}

@@ -1,0 +1,56 @@
+# -*- mode: snippet -*-
+# name: THREE.Starter
+# key: THREE.Starter
+# --
+import {
+BoxBufferGeometry,
+Mesh,
+MeshNormalMaterial,
+PerspectiveCamera,
+Scene,
+WebGLRenderer,
+} from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import "./main.sass";
+
+const canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const renderer = new WebGLRenderer({
+antialias: true,
+canvas,
+});
+
+const fov = 90;
+const aspect = canvas.width / canvas.height;
+const near = 0.1;
+const far = 100;
+const camera = new PerspectiveCamera(fov, aspect, near, far);
+camera.position.set(1, 1, 1);
+
+new OrbitControls(camera, renderer.domElement);
+
+const scene = new Scene();
+
+const mesh = new Mesh(new BoxBufferGeometry(1, 1, 1), new MeshNormalMaterial());
+scene.add(mesh);
+
+function resize(camera: PerspectiveCamera, renderer: WebGLRenderer) {
+const { innerWidth: width, innerHeight: height } = window;
+const aspect = width / height;
+camera.aspect = aspect;
+camera.updateProjectionMatrix();
+renderer.setSize(width, height);
+renderer.setPixelRatio(window.devicePixelRatio);
+}
+
+function render() {
+renderer.render(scene, camera);
+}
+
+resize(camera, renderer);
+renderer.setAnimationLoop(render);
+
+window.addEventListener("resize", () => resize(camera, renderer));
