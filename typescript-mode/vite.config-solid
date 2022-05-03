@@ -1,0 +1,24 @@
+# -*- mode: snippet -*-
+# name: vite.config: solid
+# key: vite.config-solid
+# --
+// vite.config.js
+import solidPlugin from "vite-plugin-solid";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+plugins: [
+solidPlugin({
+babel: {
+plugins: [
+["@babel/plugin-proposal-decorators", { legacy: true }],
+["@babel/plugin-proposal-class-properties"],
+],
+},
+}),
+],
+build: {
+target: "esnext",
+polyfillDynamicImport: false,
+},
+});
