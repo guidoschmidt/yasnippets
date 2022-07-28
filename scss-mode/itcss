@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: ITCSS
+# key: itcss
+# --
+// 1. Settings - variables, config-switches
+@import "./1-settings/_settings.scss";
+
+// 2. Tools - mixins and functions
+
+// 3. Generic - ground-zero styling (normalize, reset)
+@import "./3-generic/_reset.scss";
+
+// 4. Base - unclassed HTML element styles
+
+// 5. Objects - cosmetic-free design patterns
+
+// 6. Components - UI-chunks (more complex components)
+
+// 7. Helpers - helpers, overrides

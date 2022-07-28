@@ -2,9 +2,11 @@
 # name: download-json
 # key: download-json
 # --
-const jsonObj = JSON.stringify(data);
+export function downloadObjectAsJson(obj: any, filename: string) {
+const data = JSON.stringify(obj);
+const dataStr = encodeURIComponent(data);
 const link = document.createElement("a");
-const uriComp = encodeURIComponent(jsonObj);
-link.setAttribute("download", `\${Date.now()}.json`);
-link.setAttribute("href", `data:text/json;charset=utf-8,\${uriComp}`);
+link.setAttribute("download", `\${filename}.json`);
+link.setAttribute("href", `data:text/json;charset=utf-8,\${dataStr}`);
 link.click();
+}
