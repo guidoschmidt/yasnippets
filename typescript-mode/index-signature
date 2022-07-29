@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: index-signature 
+# key: index-signature
+# --
+[key: string]: string;
