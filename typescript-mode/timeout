@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: timeout 
+# key: timeout
+# --
+const timeout = (ms: number) =>
+new Promise((resolve) => setTimeout(resolve, ms));
