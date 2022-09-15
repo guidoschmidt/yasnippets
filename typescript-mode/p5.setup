@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: p5.setup
+# key: p5.setup
+# --
+function setup() {
+createCanvas(600, 600);
+}

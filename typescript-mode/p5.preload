@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: p5.preload
+# key: p5.preload
+# --
+function preload() {
+
+}

@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: clickOutsideHook
+# key: clickOutsideHook
+# --
+function useOutsideClick(ref: React.Ref<JSX.Element>, onOutside: Function) {
+useEffect(() => {
+/**
+* Alert if clicked on outside of element
+*/
+function handleClickOutside(event: MouseEvent) {
+if (ref.current && !ref.current.contains(event.target)) {
+onOutside && onOutside();
+}
+}
+// Bind the event listener
+document.addEventListener("pointerdown", handleClickOutside);
+return () => {
+// Unbind the event listener on clean up
+document.removeEventListener("pointerdown", handleClickOutside);
+};
+}, [ref]);
+}
