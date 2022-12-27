@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import
+# key: import
+# --
+const $1 = @import("$1");

@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: vite.config-base
+# key: vite.config-base
+# --
+// vite.config.js
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  plugins: [],
+  build: {
+    target: "esnext",
+  },
+});
