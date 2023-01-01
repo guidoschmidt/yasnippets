@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: p5-template
+# key: p5-template
+# --
+import p5 from "p5";
+
+new p5((p: p5) => {
+p.setup = function() {
+p.createCanvas(\$1, \$2);
+}
+
+p.draw = function() {
+p.background(0);
+}
+})
