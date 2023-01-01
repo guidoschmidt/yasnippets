@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: build-add-run
+# key: build-add-run
+# --
+const run_cmd = exe.run();
+run_cmd.step.dependOn(b.getInstallStep());
+
+const run_step = b.step("run", "Start the program");
+run_step.dependOn(&run_cmd.step);
