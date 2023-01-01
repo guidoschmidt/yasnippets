@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: string-extension
+# key: string-extension
+# --
+interface String {
+  $1(): void;
+}
+
+String.prototype.$1 = function() {
+  $2
+};
