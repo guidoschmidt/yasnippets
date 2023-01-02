@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: window-extension
+# key: window-extension
+# --
+
+declare global {
+  interface Window {
+    $1: Function;
+  }
+}
+
+window.$1 = () => { $2 };

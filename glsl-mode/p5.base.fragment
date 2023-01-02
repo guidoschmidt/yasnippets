@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: p5.base.fragment
+# key: p5.base.fragment
+# --
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+varying vec3 vPosition;
+
+void main() {
+vec3 color = vec3(0.0);
+vec2 uv = vPosition.xy;
+gl_FragColor = vec4(vec3(uv, 0.0), 1.0);
+}

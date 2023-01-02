@@ -4,7 +4,8 @@
 # --
 const canvas: HTMLCanvasElement = document.querySelector(selector);
 const link = document.createElement("a");
-link.setAttribute("download", `\${Date.now()}.png`);
+const fileName = `${Date.now()}.png`;
+link.setAttribute("download", fileName);
 link.setAttribute(
 "href",
 canvas?.toDataURL("image/png")?.replace("image/png", "image/octet-stream")

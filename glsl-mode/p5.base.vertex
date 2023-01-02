@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: p5.base.vertex
+# key: p5.base.vertex
+# --
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform mat4 uProjectionMatrix;
+uniform mat4 uModelViewMatrix;
+
+attribute vec3 aPosition;
+
+varying vec3 vPosition;
+
+void main() {
+vPosition = aPosition;
+gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
+}

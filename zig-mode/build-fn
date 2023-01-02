@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: build-fn
+# key: build-fn
+# --
+const std = @import("std");
+
+pub fn build(b: *std.build.Builder) !void {
+
+}
