@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
-# name: alloc-gpa
-# key: alloc-gpa
+# name: alloc.gpa
+# key: alloc.gpa
 # --
-const gpa = std.heap.GeneralPurposeAllocator(.{}){};
+var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+const allocator = gpa.allocator();
