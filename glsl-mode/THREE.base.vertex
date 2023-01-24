@@ -2,6 +2,7 @@
 # name: THREE.base-vertex-shader
 # key: THREE.vertex-base
 # --
+// VERTEX SHADER
 precision highp float;
 
 in vec3 position;
@@ -10,9 +11,9 @@ in vec2 uv;
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
 
-out vec2 vUv;
+out vec2 v_uv;
 
 void main() {
-  vUv = uv;
+  v_uv = uv;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
