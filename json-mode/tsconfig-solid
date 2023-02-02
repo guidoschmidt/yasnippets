@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: tsconfig-solid
+# key: tsconfig-solid
+# --
+{
+"compilerOptions": {
+"jsx": "preserve",
+"jsxImportSource": "solid-js"
+}
+}
