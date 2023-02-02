@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: tsconfig-esnext 
+# key: tsconfig-esnext
+# --
+{
+"compilerOptions": {
+"module": "esnext",
+"target": "esnext",
+"moduleResolution": "node"
+}
+}
