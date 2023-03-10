@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: decl
+# key: decl
+# --
+i := $1
