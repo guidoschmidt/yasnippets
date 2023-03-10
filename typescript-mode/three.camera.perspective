@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: three.camera.persp
+# key: three.camera.persp
+# --
+const fov = 90;
+const aspect = canvas.width / canvas.height;
+const near = 0.1;
+const far = 100;
+const camera = new PerspectiveCamera(fov, aspect, near, far);

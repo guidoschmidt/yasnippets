@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: three.camera.ortho
+# key: three.camera.ortho
+# --
+const camera = new OrthographicCamera(1, -1, -1, 1, -100, 100);
