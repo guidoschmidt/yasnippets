@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pixelate
+# key: pixelate
+# --
+image-rendering: pixelated;
