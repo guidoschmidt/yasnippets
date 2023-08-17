@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: build.test
+# key: build.test
+# --
+// Tests
+const tests = b.addTest(.{
+.root_source_file = .{ .path = $1 },
+.target = target,
+.optimize = optimize
+});
+//tests.addModule("", module_name);
+const run_tests = b.addRunArtifact(tests);
+const test_step = b.step("test", "Run tests");
+test_step.dependOn(&run_tests.step);
