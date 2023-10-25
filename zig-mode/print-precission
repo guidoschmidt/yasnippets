@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: print-precission
+# key: print-precission
+# --
+d:.2

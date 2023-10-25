@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: rng
+# key: rng
+# --
+const rng_gen = std.rand.DefaultPrng;
+const rng: std.rand.Xoshiro256 = rng_gen.init(0);
+rng.random().intRangeAtMost(u32, -10000, 10000);
