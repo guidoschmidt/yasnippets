@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: io.read-string 
+# key: io.read-string
+# --
+char name[100];
+scanf("%s", name);

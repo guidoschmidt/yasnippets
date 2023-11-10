@@ -2,7 +2,7 @@
 # name: build-add-run
 # key: build-add-run
 # --
-const run_cmd = exe.run();
+const run_cmd = b.addRunArtifact(exe);
 run_cmd.step.dependOn(b.getInstallStep());
 
 const run_step = b.step("run", "Start the program");
