@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: print 
+# key: pt
+# --
+std.debug.print("\n{$1}", .{$2});

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: print-buf
+# key: print-buf
+# --
+var buf: [32]u8 = undefined;
+const filename = try std.fmt.bufPrint(&buf, "out/image-{s}.png", .{ i });
