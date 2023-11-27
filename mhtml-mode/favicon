@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: favicon
+# key: favicon
+# --
+<link rel="icon" href="/favicon.svg" />
