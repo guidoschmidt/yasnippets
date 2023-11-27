@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: float-precision
+# key: float-prec
+# --
+Number($1.toFixed(String($2).length - 2))
