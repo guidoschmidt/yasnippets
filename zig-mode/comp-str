@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: comp-str 
+# key: comp-str
+# --
+std.mem.eql(u8, word, s)

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: vector 
+# key: vector
+# --
+var $1 = @Vector($2, $3){ $4 };

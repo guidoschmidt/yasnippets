@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: createFile
+# key: createFile
+# --
+const file_path = "out/test.svg";
+const file = try fs.cwd().createFile(file_path, .{ .mode = .write_only });

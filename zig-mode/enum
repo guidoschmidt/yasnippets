@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: enum
+# key: enum
+# --
+const Dir = enum {
+NORTH,
+EAST,
+SOUTH,
+WEST
+};

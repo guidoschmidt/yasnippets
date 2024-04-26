@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: openFile
+# key: openFile
+# --
+const file_path = "out/test.svg";
+const file = try fs.cwd().openFile(file_path, .{ .mode = .write_only });
