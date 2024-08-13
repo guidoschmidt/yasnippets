@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: limit-fps
+# key: limit-fps
+# --
+let frameNow = Date.now();
+let frameNext = Date.now();
+let elapsed = 0;
+let desiredFps = 60;
+
+function animate() {
+frameNow = Date.now();
+elapsed = frameNow - frameNext;
+
+if (elapsed > 1000 / desiredFps) {
+frameNext = this.frameNow - (this.elapsed % this.desiredFps);
+this.update();
+this.draw();
+}
+this.raf = requestAnimationFrame(animate);
+}

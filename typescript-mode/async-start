@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: async-start
+# key: async-start
+# --
+(async () => {
+})();

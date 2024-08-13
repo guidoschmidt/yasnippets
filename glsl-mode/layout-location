@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: layout-location
+# key: layout-location
+# --
+layout(location = 0)

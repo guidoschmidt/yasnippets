@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: fps
+# key: fps
+# --
+const fps = 10;
+const ms_per_frame = @divTrunc(1, fps) * 1000;
+std.debug.print("\\nms / frame {d}", .{ ms_per_frame });
+var now = @divTrunc(std.time.nanoTimestamp(), std.time.ns_per_ms);
+while (true) {
+const then = @divTrunc(std.time.nanoTimestamp(), std.time.ns_per_ms);
+const elapsed = then - now;
+if (elapsed >= ms_per_frame) {
+publisher.next(0);
+now = then; 
+}
+}

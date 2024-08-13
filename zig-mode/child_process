@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: child_process
+# key: child_process
+# --
+var child_process = std.process.Child.init(&[_][]const u8 {
+"dot",
+"-Tsvg",
+"day25.dot",
+"-o",
+"day25.svg"
+}, allocator);
+child_process.stdout_behavior = .Pipe;
+child_process.stderr_behavior = .Pipe;
+try child_process.spawn();
+_ = try child_process.wait();

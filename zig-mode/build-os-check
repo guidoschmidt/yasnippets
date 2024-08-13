@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: build-os-check 
+# key: build-os-check
+# --
+if(target.result.os.tag == .windows) {
+
+}

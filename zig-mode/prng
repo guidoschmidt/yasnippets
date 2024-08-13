@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: prng
+# key: prng
+# --
+var prng = std.rand.DefaultPrng.init(blk: {
+var seed: u64 = undefined;
+try std.posix.getrandom(std.mem.asBytes(&seed));
+break :blk seed;
+});
+var rng = prng.random();

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: build-default-target-optimize
+# key: build-default-target-optimize
+# --
+const target = b.standardTargetOptions(.{});
+const optimize = b.standardOptimizeOption(.{});

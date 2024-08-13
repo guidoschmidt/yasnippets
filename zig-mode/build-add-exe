@@ -2,12 +2,10 @@
 # name: build-add-exe
 # key: build-add-exe
 # --
-const target = b.standardTargetOptions(.{});
-const optimize = b.standardOptimizeOption(.{});
-
 const exe = b.addExecutable(.{
-.name = "http",
-.root_source_file = .{ .path = "src/main.c" },
-.target = target,
-.optimize = optimize,
+    .name = "http",
+    .root_source_file = b.path("src/main.zig"),
+    .target = target,
+    .optimize = optimize,
 });
+b.installArtifact(exe);

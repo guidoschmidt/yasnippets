@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: build-add-lib
+# key: build-add-lib
+# --
+const lib_cimgui = b.addStaticLibrary(.{
+.name = "cimgui",
+.target = target,
+.optimize = optimize,
+});
+lib_cimgui.addIncludePath(b.path("./cimgui/"));
+lib_cimgui.linkLibCpp();
+lib_cimgui.addCSourceFiles(.{
+.files = &.{
+"./cimgui/imgui/imgui.cpp",
+"./cimgui/imgui/imgui_demo.cpp",
+"./cimgui/imgui/imgui_draw.cpp",
+"./cimgui/imgui/imgui_tables.cpp",
+"./cimgui/imgui/imgui_widgets.cpp",
+"./cimgui/cimgui.cpp",
+}
+});
