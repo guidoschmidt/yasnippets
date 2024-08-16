@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: build.wasm-lib
+# key: build.wasm-lib
+# --
+fn createWasmLib(b: *std.Build, name: []const u8, src: []const u8, optimize: std.builtin.OptimizeMode) void {
+    const wasm_lib = b.addExecutable(.{
+        .name = name,
+        .root_source_file = b.path(src),
+        .target = b.resolveTargetQuery(.{
+            .cpu_arch = .wasm32,
+            .os_tag = .freestanding,
+        }),
+        .optimize = optimize,
+    });
+    wasm_lib.entry = .disabled;
+    wasm_lib.rdynamic = true;
+    wasm_lib.import_symbols = true;
+
+    const install_artifact = b.addInstallArtifact(wasm_lib, .{
+        .dest_dir = .{
+            .override = .{
+                .custom = "./web/src/wasm",
+            }
+        }
+    });
+    b.getInstallStep().dependOn(&install_artifact.step);
+    b.installArtifact(wasm_lib);
+}
