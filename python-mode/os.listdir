@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: os.listdir
+# key: os.listdir
+# --
+files = os.listdir(input_dir)
+for file in files:
+print(file)

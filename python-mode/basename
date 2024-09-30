@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: basename
+# key: basename
+# --
+name, ext = os.path.splitext(file)

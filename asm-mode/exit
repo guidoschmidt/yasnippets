@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: exit
+# key: exit
+# --
+movl \$1, %eax # 1 is exit() syscall
+int \$0x80

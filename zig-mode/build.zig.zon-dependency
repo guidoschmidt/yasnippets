@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: build.zig.zon-dependency
+# key: build.zig.zon-dependency
+# --
+.$1 = .{
+    .url = "https://github.com/user/repo/archive/commit-hash.tar.gz",
+    .hash = "",
+},

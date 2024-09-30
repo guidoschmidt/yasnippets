@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: abbrev-equ
+# key: equ
+# --
+.equ ${1:SYS_OPEN}, ${2:5}

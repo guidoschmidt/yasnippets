@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: .section x
+# key: sec
+# --
+.section ${1:.data}
