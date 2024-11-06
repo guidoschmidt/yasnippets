@@ -1,56 +1,95 @@
 # -*- mode: snippet -*-
-# name: THREE.Starter
-# key: THREE.Starter
+# name: THREE.starter
+# key: THREE.starter
 # --
 import {
-BoxBufferGeometry,
+BoxGeometry,
+Camera,
 Mesh,
 MeshNormalMaterial,
+OrthographicCamera,
 PerspectiveCamera,
 Scene,
 WebGLRenderer,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import "./main.sass";
+import "./style.css";
 
-const canvas = document.createElement("canvas");
-document.body.appendChild(canvas);
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+class MinimalRenderer {
+private readonly canvas: HTMLCanvasElement;
+private scene: Scene = new Scene();
+private camera: Camera = new PerspectiveCamera();
+private renderer: WebGLRenderer;
 
+constructor() {
+this.canvas = document.createElement("canvas");
+this.canvas.width = window.innerWidth;
+this.canvas.height = window.innerHeight;
+document.body.appendChild(this.canvas);
+
+this.renderer = this.setupRenderer();
+this.camera = this.setupCamera();
+this.scene = this.setupScene();
+
+new OrbitControls(this.camera, this.canvas);
+
+this.setupListeners();
+
+this.renderer.setAnimationLoop(this.render.bind(this));
+}
+
+private setupListeners() {
+window.addEventListener("resize", () => this.resize());
+}
+
+private setupRenderer() {
 const renderer = new WebGLRenderer({
 antialias: true,
-canvas,
+canvas: this.canvas,
 });
+return renderer;
+}
 
+private setupScene() {
+const scene = new Scene();
+const mesh = new Mesh(new BoxGeometry(1, 1, 1), new MeshNormalMaterial());
+scene.add(mesh);
+return scene;
+}
+
+private setupCamera() {
 const fov = 90;
-const aspect = canvas.width / canvas.height;
+const aspect = this.canvas.width / this.canvas.height;
 const near = 0.1;
 const far = 100;
 const camera = new PerspectiveCamera(fov, aspect, near, far);
 camera.position.set(1, 1, 1);
+return camera;
+}
 
-new OrbitControls(camera, renderer.domElement);
+render() {
+this.renderer.render(this.scene, this.camera);
+}
 
-const scene = new Scene();
-
-const mesh = new Mesh(new BoxBufferGeometry(1, 1, 1), new MeshNormalMaterial());
-scene.add(mesh);
-
-function resize(camera: PerspectiveCamera, renderer: WebGLRenderer) {
+resize() {
 const { innerWidth: width, innerHeight: height } = window;
 const aspect = width / height;
-camera.aspect = aspect;
-camera.updateProjectionMatrix();
-renderer.setSize(width, height);
-renderer.setPixelRatio(window.devicePixelRatio);
+if (this.camera instanceof PerspectiveCamera) {
+this.camera.aspect = aspect;
+this.camera.updateProjectionMatrix();
+}
+if (this.camera instanceof OrthographicCamera) {
+this.camera.left = -1;
+this.camera.right = -1;
+this.camera.top = -aspect;
+this.camera.bottom = -aspect;
+this.camera.updateProjectionMatrix();
+}
+this.renderer.setSize(width, height);
+this.renderer.setPixelRatio(window.devicePixelRatio);
+}
 }
 
-function render() {
-renderer.render(scene, camera);
-}
-
-resize(camera, renderer);
-renderer.setAnimationLoop(render);
-
-window.addEventListener("resize", () => resize(camera, renderer));
+(() => {
+new MinimalRenderer();
+})();
