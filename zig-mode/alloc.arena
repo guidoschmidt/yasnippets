@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: alloc-arena
-# key: alloc-arena
+# name: alloc.arena
+# key: alloc.arena
 # --
-var arena = std.heap.ArenaAllocator.init(std.heap.c_allocator);
+var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
 defer arena.deinit();
