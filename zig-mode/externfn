@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: externfn
+# key: externfn
+# --
+pub extern fn {$1:fnName}({$2:args}) callconv(.c) {$3:returntype};

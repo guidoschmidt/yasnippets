@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: rotate-2d
+# key: rot-2d
+# --
+matrix<float, 2, 2> rotate2D(float angle)
+{
+  return matrix<float, 2, 2>(cos(angle), -sin(angle), sin(angle), cos(angle));
+}

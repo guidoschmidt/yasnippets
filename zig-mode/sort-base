@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: sort-base
+# key: sort-base
+# --
+std.mem.sort(usize, items, {}, comptime struct {
+pub fn f(_: void, a: usize, b: usize) bool {
+return a < b;
+}
+}.f);

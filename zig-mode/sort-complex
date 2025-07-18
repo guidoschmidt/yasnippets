@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: sort-complex
+# key: sort-complex
+# --
+std.mem.sort(Card, cards.items, {}, comptime struct {
+pub fn f(_: void, a: Card, b: Card) bool {
+const rating_a = @intFromEnum(a.rating);
+const rating_b = @intFromEnum(b.rating);
+if (rating_a == rating_b)
+return secondOrderingRule(a.hand, b.hand, cardValueFromLetter);
+return rating_a < rating_b;
+}
+}.f);
