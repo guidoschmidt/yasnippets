@@ -2,11 +2,6 @@
 # name: struct.format
 # key: struct.format
 # --
-pub fn format(self: Self,
-comptime fmt: []const u8,
-options: std.fmt.FormatOptions,
-writer: anytype) !void {
-  _ = fmt;
-  _ = options;
-  try writer.print("{s} ", .{  });
+pub fn format(self: $1, writer: *std.Io.Writer) std.Io.Writer.Error!void {
+    try writer.print("{$2}", .{$3});
 }
