@@ -1,0 +1,75 @@
+# -*- mode: snippet -*-
+# name: EmmallocAllocator
+# key: alloc.emscripten
+# --
+// EmmallocAllocator allocator
+// use with linker flag -sMALLOC=emmalloc
+// for details see docs: https://github.com/emscripten-core/emscripten/blob/main/system/lib/emmalloc.c
+extern fn emmalloc_memalign(u32, u32) ?*anyopaque;
+extern fn emmalloc_realloc_try(?*anyopaque, u32) ?*anyopaque;
+extern fn emmalloc_free(?*anyopaque) void;
+pub const EmmallocAllocator = struct {
+    const Self = @This();
+    dummy: u32 = undefined,
+
+    pub fn allocator(self: *Self) std.mem.Allocator {
+        return .{
+            .ptr = self,
+            .vtable = &.{
+                .alloc = &alloc,
+                .resize = &resize,
+                .remap = &remap,
+                .free = &free,
+            },
+        };
+    }
+
+    fn alloc(
+        ctx: *anyopaque,
+        len: usize,
+        ptr_align_log2: std.mem.Alignment,
+        return_address: usize,
+    ) ?[*]u8 {
+        _ = ctx;
+        _ = return_address;
+        const ptr_align: u32 = @as(u32, 1) << @intCast(@intFromEnum(ptr_align_log2));
+        if (!std.math.isPowerOfTwo(ptr_align)) unreachable;
+        const ptr = emmalloc_memalign(ptr_align, @intCast(len)) orelse return null;
+        return @ptrCast(ptr);
+    }
+
+    fn resize(
+        ctx: *anyopaque,
+        buf: []u8,
+        buf_align_log2: std.mem.Alignment,
+        new_len: usize,
+        return_address: usize,
+    ) bool {
+        _ = ctx;
+        _ = return_address;
+        _ = buf_align_log2;
+        return emmalloc_realloc_try(buf.ptr, @intCast(new_len)) != null;
+    }
+
+    fn remap(
+        ctx: *anyopaque,
+        buf: []u8,
+        buf_align_log2: std.mem.Alignment,
+        new_len: usize,
+        return_address: usize,
+    ) ?[*]u8 {
+        return if (resize(ctx, buf, buf_align_log2, new_len, return_address)) buf.ptr else null;
+    }
+
+    fn free(
+        ctx: *anyopaque,
+        buf: []u8,
+        buf_align_log2: std.mem.Alignment,
+        return_address: usize,
+    ) void {
+        _ = ctx;
+        _ = buf_align_log2;
+        _ = return_address;
+        return emmalloc_free(buf.ptr);
+    }
+};

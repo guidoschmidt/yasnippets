@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name: http.request
+# key: http.request
+# --
+var client = std.http.Client{
+.allocator = allocator,
+};
+
+var body: std.Io.Writer.Allocating = .init(allocator);
+defer body.deinit();
+try body.ensureUnusedCapacity(1024);
+
+_ = try client.fetch(.{
+.location = .{ .url = "https://adventofcode.com/2023/day/6/input" },
+.extra_headers = &.{
+.{
+.name = "cookie",
+.value = "session=53616c7465645f5f51bb2753ea90c02364db584f31a2b53d145fd73852e0eab2df9622cfc4298efcbadb42cb1561c5c04aea2197808df1573cd9bd6f39f0a564",
+},
+},
+.method = .GET,
+.response_writer = &body.writer,
+});
+
+const response = try body.toOwnedSlice();
+std.debug.print("\\nResult:\\n{s}\\n", .{response});

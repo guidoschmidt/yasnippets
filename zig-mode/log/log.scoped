@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: log.scoped
+# key: log.scoped
+# --
+const l = std.log.scoped(.entry);
+l.debug("{s}", .{"Hello"});

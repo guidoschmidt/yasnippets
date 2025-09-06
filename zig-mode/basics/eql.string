@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: comp-str 
-# key: comp-str
+# name: String equality
+# key: eql.string
 # --
 std.mem.eql(u8, word, s)

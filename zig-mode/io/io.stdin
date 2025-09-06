@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: stdin
+# key: stdin
+# --
+var reader_buffer: [10]u8 = undefined;
+var reader = std.fs.File.stdin().readerStreaming(&reader_buffer);
+
+while (true) {
+    var writter_buffer: [10]u8 = undefined;
+    var writer = std.fs.File.stdout().writerStreaming(&writter_buffer);
+    const  = try reader.interface.streamDelimiter(&writer.interface, '\\n');
+    _ = try reader.interface.takeByte();
+}
