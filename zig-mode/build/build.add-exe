@@ -3,9 +3,11 @@
 # key: build-add-exe
 # --
 const exe = b.addExecutable(.{
-    .name = "http",
-    .root_source_file = b.path("src/main.zig"),
-    .target = target,
-    .optimize = optimize,
+    .name = "$1",
+    .root_module = b.createModule(.{
+        .root_source_file = b.path("$2"),
+        .optimize = optimize,
+        .target = target,
+    }),
 });
 b.installArtifact(exe);
