@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: alloc.debug+prod
+# key: alloc.debug+prod
+# --
+var gpa: std.heap.DebugAllocator(.{}) = .empty;
+const allocator = if (builtin.mode == .Debug) gpa.allocator() else std.heap.c_allocator;
+
+defer if (builtin.mode == .Debug) {
+if (gpa.detectLeaks()) {
+    std.posix.exit(1);
+}
+};
